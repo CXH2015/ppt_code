@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+          <%@taglib prefix="s" uri="/struts-tags" %>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <script type="text/javascript" src="${pageContext.request.contextPath}/js/My97DatePicker/WdatePicker.js"></script>
+ <script type="text/javascript">
+  function validate()
+  {
+		  var psw = document.getElementById("psw").value;
+		  var repsw = document.getElementById("repsw").value;
+		  var name = document.getElementById("name").value;
+		  if(name.length==0)
+			  {
+				  document.getElementById("error").innerHTML="用户名不能为空";
+				  return false;
+			  }
+		  if(psw.length==0)
+			  {
+				  document.getElementById("error").innerHTML="密码不能为空";
+				  return false;
+			  }
+			  if(psw!=repsw)
+			  {
+				  document.getElementById("error").innerHTML="密码和重复密码不一致，请重新输入";
+				  return false;
+			  }
+	  return true;
+  }
+  </script>
+<link href="css/admin.css" rel="stylesheet" type="text/css"/>
+<link href="css/theme.css" rel="stylesheet" type="text/css"/>
+<title>修改用户</title>
+<%int i =0; %>
+</head>
+<body>
+<div class="body-box">
+    <form action="update.action" method="post">
+       <table width="50%" class="pn-ftable" cellpadding="2" cellspacing="1" border="0">
+			<tr>
+          <td width="10%" class="pn-flabel pn-flabel-h">用户名：</td>
+          <td width="40%" class="pn-fcontent">
+             <input type="text" name="user.uname" id="name" value="${user.uname}">
+          </td>
+          </tr>
+          <tr>
+          <td width="10%" class="pn-flabel pn-flabel-h">密码：</td>
+          <td width="40%" class="pn-fcontent">
+             <input type="password" name="user.upassword" id="psw">
+          </td>
+          </tr>
+          <tr>
+          <td width="10%" class="pn-flabel pn-flabel-h">确认密码：</td>
+          <td width="40%" class="pn-fcontent">
+             <input type="password" name="repassword"  id="repsw">
+          </td>
+          </tr>
+          <tr>
+          <td width="10%" class="pn-flabel pn-flabel-h">年龄：</td>
+          <td width="40%" class="pn-fcontent">
+             <select name="user.uage" >
+             <%   while(i++<100)
+            	 {
+            	 request.setAttribute("i",i);
+            	 %>
+               <option value="<%=i %>"
+                <c:if test="${user.uage == i}">
+                  selected
+                </c:if>
+               
+               ><%=i %></option>
+               <%} %>
+             </select>
+          </td>
+          </tr>
+          <tr>
+          <td width="10%" class="pn-flabel pn-flabel-h">生日：</td>
+          <td width="40%" class="pn-fcontent">
+            <input type="text" name="user.ubirthday" value="${user.ubirthday}"
+                                readonly="readonly"
+                                class="Wdate"
+                                onFocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd'})"/>
+          </td>
+          </tr>
+          <tr>
+          <td width="10%" class="pn-flabel pn-flabel-h">性别：</td>
+          <td width="40%" class="pn-fcontent">
+               <input type="radio" name="user.ugender" value="男"
+               <c:if test="${user.ugender eq '男' }">checked="checked"</c:if>
+               >男
+               <input type="radio" name="user.ugender" value="女"
+               <c:if test="${user.ugender eq '女' }">checked="checked"</c:if>
+               >女
+          </td>
+          </tr>
+          <tr>
+            <td width="40%" class="pn-fcontent" colspan="2">
+             <div id="error" style="color:red"></div>
+          </td>
+          </tr>
+				<tr>
+					<td colspan="2" class="pn-fbutton" width="50%">
+						<input type="submit" value="修改" class="submit"  onclick="return validate();"  /> &nbsp; 
+						<input type="reset" value="重置" class="reset" class="reset"/>
+					</td>
+				</tr>
+       
+       </table>
+    
+    </form>
+    </div>
+</body>
+</html>

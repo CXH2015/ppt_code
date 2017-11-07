@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 设置Struts对web页面的解码方式 -->
+     <constant name="struts.i18n.encoding" value="gb2312"/>
+     <constant name="struts.custom.i18n.resources" value="msg"/>
+    <package name="myPackage"  extends="struts-default" >
+    <!-- 定义登陆的action -->
+        <action name="userLogin" class="dps.action.UserAction">
+            <result>loginSuccess.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+    </package>
+</struts>

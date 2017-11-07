@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 设置Struts对web页面的解码方式 -->
+     <constant name="struts.i18n.encoding" value="UTF-8"/>
+     <constant name="struts.custom.i18n.resources" value="msg"/>
+     <!-- 这里可以设置系统启动时加载的时区
+     <constant name="struts.locale" value="en_US"></constant>
+      -->
+    <package name="myPackage"  extends="struts-default" >
+       <!-- 定义登陆的action -->
+        <action name="login" class="dps.action.UserAction"   method="login">
+            <result>loginSuccess.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+       <!-- 定义注册的action -->
+        <action name="regist" class="dps.action.UserAction" method="regist">
+            <result>login.jsp</result>
+        </action>
+    </package>
+</struts>

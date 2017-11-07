@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.lib.spring3.MYECLIPSE_SPRING30_CORE"/>
+	<classpathentry kind="lib" path="H:/快盘/工作/写书/演示代码备份/第5章 Spring框架/lib/com.springsource.org.dom4j-1.6.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="myPackage" extends="struts-default" >
+	   <!-- 用户登录 -->
+       <action name="login" class="dps.action.UserAction" method="login">
+          <result name="success">/index.jsp</result>
+          <result name="input">/Login.jsp</result>
+       </action>
+	   <!-- 用户注册 -->
+       <action name="regist" class="dps.action.UserAction" method="regist">
+          <result name="success">/Login.jsp</result>
+       </action>
+	   <!-- 列出所有用户 -->
+       <action name="listAllUser" class="dps.action.UserAction" method="listAllUser">
+          <result name="success">/listAllUser.jsp</result>
+       </action>
+	   <!-- 列出所有用户 分页 -->
+       <action name="listAllUserPage" class="dps.action.UserAction" method="listAllUserPage">
+          <result name="success">/listAllUser.jsp</result>
+       </action>
+	   <!-- 根据查询条件查询用户 分页 -->
+       <action name="searchUser" class="dps.action.UserAction" method="searchUser">
+          <result name="success">/listAllUser.jsp</result>
+       </action>
+	   <!-- 到用户修改界面 -->
+       <action name="preUpdate" class="dps.action.UserAction" method="preUpdate">
+          <result name="success">/update.jsp</result>
+       </action>
+	   <!-- 修改用户 -->
+       <action name="update" class="dps.action.UserAction" method="update">
+          <result name="success" type="redirectAction">listAllUserPage</result>
+       </action>
+	   <!--删除用户 -->
+       <action name="delete" class="dps.action.UserAction" method="delete">
+          <result name="success" type="redirectAction">listAllUserPage</result>
+       </action>
+	</package>
+</struts>

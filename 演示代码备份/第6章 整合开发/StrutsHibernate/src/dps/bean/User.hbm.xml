@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping	package="dps.bean">
+	<class name="User"  table="t_user">
+		<id name="uid">		
+			<generator class="native"/>
+		</id>
+		<property name="uname" column="name" length="20"/>
+		<property name="uage" />
+		<property name="ubirthday" column="birthday"  type="date"/>
+		<property name="ugender"  column="gender" length="1"/>
+		<property name="upassword" length="36"/>
+	</class>
+</hibernate-mapping>

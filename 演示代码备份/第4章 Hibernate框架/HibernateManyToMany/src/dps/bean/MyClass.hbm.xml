@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<!--班级类的映射文件-->
+<hibernate-mapping	package="dps.bean">
+	<class name="MyClass"  table="t_myclass">
+		<id name="cid">		
+			<generator class="native"/>
+		</id>
+		<property name="cname" column="name" length="50"/>
+		<set name="myStudentSet" table="stu_class" cascade="all" >
+		  <key column="c_id"></key>
+		  <many-to-many class="Student" column="s_id"/>
+		</set>
+	</class>
+</hibernate-mapping>
